@@ -1,0 +1,33 @@
+{% load static %}
+<html lang="en">
+          <head>
+            <meta charset="utf-8">
+          
+            <title>Sorting</title>
+            <meta name="description" content="Figma htmlGenerator">
+            <meta name="author" content="htmlGenerator">
+            <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
+
+            <link rel="stylesheet" href="{% static 'css/end_order_styles.css' %}">
+          </head>
+          
+          <body>
+            <div class=frame>
+              <span  class="end_text">
+                В данный момент сортировка находится в разработке...
+              </span>
+
+              {% url 'tyresapp:tyres' as tyres_url %}
+              <a href="{{ tyres_url }}">
+                <div class="bin">
+                  <div class="bin_background">
+                    <div class="blue_bin">
+                      <span class="bin_text">Каталог</span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+              </div>
+              </div>
+            </body>
+          </html>

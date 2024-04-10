@@ -1,0 +1,70 @@
+{% load static %}
+<html lang="en">
+          <head>
+            <meta charset="utf-8">
+          
+            <title>Tyre detail</title>
+            <meta name="description" content="Figma htmlGenerator">
+            <meta name="author" content="htmlGenerator">
+            <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
+
+            <link rel="stylesheet" href="{% static 'css/product_card_styles.css' %}">
+          </head>
+          
+          <body>
+            <div class="frame">
+              {% url 'tyresapp:tyres' as tyres_url %}
+              <a href="{{ tyres_url }}">
+                <span  class="back_text">Назад</span>
+                <img class="back_image" src="{% static 'photos/image_1.png' %}">
+              </a>
+              
+              {% for image in tyre.images.all %}
+                <img  class="e29_15" src="{{ image.image.url }}">
+              {% endfor %}
+              
+              <span  class="company_title">Шинный магазин FRESH</span>
+              <span  class="bot_title">бот</span>
+                
+              <div class=e29_6>
+                <div  class="e29_8">
+  
+                </div></div>
+                <span  class="e29_9">
+                  {{ tyre.model }}<br>
+                  Шины {{ tyre.tyres_parameters }}
+                  {% if tyre.disks_parameters %}
+                    <br>Диски {{ tyre.disks_parameters }}
+                  {% endif %}
+                </span>
+                <span  class="price">{{ tyre.price }} ₽</span>
+                <span  class="e29_11">Комплект, 4 шт.</span>
+                <span  class="e29_12">
+                  Остаток протектора: <b>{{ tyre.tread_remain }}</b><br>
+                  Состояние: <b>{{ tyre.stage }}</b><br>
+                  Сезон: <b>{{ tyre.season }}</b><br>
+                  Локация: <b>{{ tyre.location }}</b>
+                </span>
+            
+                <div id="blueButton" class="blue_button">
+                    <span id="add_text" class="add_text">Товар добавлен</span>
+                </div>
+                
+                <a id="basketUrlID" href="#">
+                  <div class="bin">
+                    <div class="bin_background">
+                      <div class="blue_bin">
+                        <span class="bin_text">Корзина</span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+            </div>
+            <script>
+              let tg = window.Telegram.WebApp;
+              let tg_id = tg.initDataUnsafe.user.tg_id;
+              var url = "{% url 'tyresapp:basket' tg_id=0 %}".replace(0, tg_id);
+              document.getElementById("basketUrlID").href = url;
+            </script>
+          </body>
+          </html>

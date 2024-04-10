@@ -1,0 +1,128 @@
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Fresh Shop</title>
+  <meta name="description" content="Figma htmlGenerator">
+  <meta name="author" content="htmlGenerator">
+  <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+</head>
+
+<body>
+  {% block body %}
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script>
+      // let tg = window.Telegram.WebApp;
+      // let tg_id = tg.initDataUnsafe.user.tg_id
+      // var tg_id = 12345
+      // var url = "{% url 'tyresapp:basket' tg_id=tg_id as basket_url %}"
+      
+    </script>
+    {{ url }}
+    {{ basket_url }}
+    <div class=frame id="frameID">
+      <div style="display: flex;">
+        <form id="searchID" method="post" style="margin-bottom: 5px;">
+          {% csrf_token %}
+          <input type="search" placeholder="Я ищу..." name="search" value="{{ search_value }}">
+        </form>
+      
+        <a href="{% url 'tyresapp:sorting' %}">
+          <div class="filters_block">
+            <img class="filters_photo" src="{% static 'photos/filters.png' %}" alt="">
+          </div>
+        </a>
+      </div>
+    
+      <a href="{% url 'tyresapp:filtration' %}" style="text-decoration: none;">
+        <div class="filters">
+            <div class="card_text">
+              <div class="filter_name">
+                Фильтры
+              </div>
+              <div class="sorted_filters">Все товары</div>
+            </div>
+
+            <img class="open_filters" src="{% static 'photos/image_1.png' %}" alt="">
+          </div>
+      </a>
+
+        {% if tyres %}
+          {% for tyre in tyres %}
+            <div class="product_card">
+              {% for image in tyre.images.all %}
+                <img class="product_image" src="{{ image.image.url }}">
+              {% endfor %}
+              <div class="card_text">
+                <div class="price">
+                  {{ tyre.price }} ₽
+                </div>
+                
+                {% if tyre.model|length > 25 %}
+                  <div class="little_model">
+                    {{ tyre.model }}
+                  </div>
+                {% else %}
+                  <div class="model">
+                    {{ tyre.model }}
+                  </div>
+                {% endif %}
+
+                <div class="classification">
+                  {{ tyre.tyres_parameters }}
+          
+                </div>
+              </div>
+              <a href="{% url 'tyresapp:tyre_details' pk=tyre.pk tg_id=0 %}">
+                <div class="button">
+                  <div class="button_background"><span class="add_text">+ Добавить</span></div>
+                </div>
+              </a>
+            </div>
+          {% endfor %}
+          {% if 6 >= tyres|length %}
+            <script>
+              let frameObject = document.getElementById("frameID")
+              frameObject.style.height = "100%";
+            </script>
+          {% endif %}
+        {% else %}
+          <script>
+            let frameObject = document.getElementById("frameID")
+            frameObject.style.height = "100%";
+          </script>
+          <div class="end_text">
+            По данному запросу ничего не найдено
+          </div>
+        {% endif %}
+      
+
+
+      <div style="display: block; width: 100%; height: 50px; background-color:rgba(255, 255, 255, 1);"></div>
+      <a id="basketUrlID" href="{% url 'tyresapp:basket' tg_id=0 %}">
+        <div class="bin">
+          <div class="bin_background">
+            <div class="blue_bin">
+              <span class="bin_text">Корзина</span>
+            </div>
+          </div>
+        </div>
+      </a>
+      </div>
+    </div>
+  {% endblock %}
+  <script>
+    let tg = window.Telegram.WebApp;
+    let tg_id = tg.initDataUnsafe.user.tg_id;
+    var url = "{% url 'tyresapp:basket' tg_id=0 %}".replace(0, tg_id);
+    document.getElementById("basketUrlID").href = url;
+  </script>
+  
+</body>
+
+</html>

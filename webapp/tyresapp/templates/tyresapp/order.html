@@ -1,0 +1,76 @@
+{% load static %}
+<html lang="en">
+          <head>
+            <meta charset="utf-8">
+          
+            <title>Order</title>
+            <meta name="description" content="Figma htmlGenerator">
+            <meta name="author" content="htmlGenerator">
+            <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
+
+            <link rel="stylesheet" href="{% static 'css/order_styles.css' %}">
+          </head>
+          
+          <body>
+            <form id="userData" method="post" class=frame>
+              {% csrf_token %}
+              <div style="display: block; width: 100%; height: 50px; background-color:rgba(255, 255, 255, 1);"></div>
+              <a href="{% url 'tyresapp:basket' tg_id=tg_id %}">
+                <span  class="back_text">Назад</span>
+                <img class="back_image" src="{% static 'photos/image_1.png' %}">
+              </a>
+
+              <span  class="company_title">Шинный магазин FRESH</span>
+              <span  class="bot_title">бот</span>
+       
+
+              <span  class="recipient">
+                Получатель
+              </span>
+
+              <input id="fio" type="text" placeholder="ФИО" name="fio">
+              <input id="phone" type="text" placeholder="Телефон" name="phone">
+              <input id="email" type="text" placeholder="Email" name="email">
+
+              <span  class="text_location">
+                Обратите внимание, местоположение выбранных товаров:
+              </span>
+              
+              {% if warehouses %}
+                {% for warehouse in warehouses %}
+                  <p>{{ warehouse }}</p>
+                {% endfor %}
+              {% endif %}
+               
+              <span  class="comment_text">
+                Комментарии к заказу:
+              </span>
+              <textarea rows="10" cols="45" name="comment"></textarea>
+              
+              <span  class="rules">
+                Нажимая кнопку “Оформить заказ”, я соглашаюсь на обработку персональных данных
+              </span>
+              <span  class="cost_text">
+                Общая стоимость:
+              </span>
+              <span  class="cost">
+                {{ full_price }} ₽
+              </span>
+
+              <div id="endOrderID" class="bin" onclick="endOrder()" style="cursor: pointer;">
+                <div class="bin_background">
+                  <div class="blue_bin">
+                    <span class="bin_text">Оформить заказ</span>
+                  </div>
+                </div>
+              </div>
+              <script>
+                document.getElementById('endOrderID').onclick = endOrder;
+                function endOrder() {
+                     let form = document.getElementById("userData")
+                     form.submit()
+                 }
+               </script>
+            </form>
+          </body>
+          </html>
