@@ -4,13 +4,8 @@ ENV PYTHONUNBUFFERED=1
 
 WORKDIR /app
 
-RUN pip install --upgrade pip setuptools==57.5.0 pip "poetry==1.4.2"
+COPY . .
 
-RUN poetry config virtualenvs.create false --local
-COPY pyproject.toml .
-COPY poetry.lock .
-RUN poetry install
-
-COPY .. .
+RUN pip install -r req.txt
 
 CMD ["gunicorn", "webapp.wsgi:application", "--bind", "0.0.0.0:8000"]

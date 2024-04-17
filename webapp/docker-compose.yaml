@@ -1,19 +1,18 @@
-version: "3.10"
+version: "3.8"
 
 services:
   app:
     build:
       dockerfile: ./Dockerfile
-    command:
-      - "gunicorn"
-      - "webapp.wsgi:application"
-      - "--bind"
-      - "0.0.0.0:8000"
-    ports:
-      - "8000:8000"
     restart: always
-    env_file:
-      - .env
+    environment:
+      DJANGO_LOGLEVEL: INFO
+      DJANGO_SECRET_KEY: UMhzQCzgYnoC8b4smzw3Eu
+      DJANGO_DEBUG: 1
+      DJANGO_ALLOWED_HOSTS: freshautoshop.ru,www.freshautoshop.ru
+      VIRTUAL_HOST: freshautoshop.ru,www.freshautoshop.ru
+      VIRTUAL_PORT: 8000
+      LETSENCRYPT_HOST: freshautoshop.ru,www.freshautoshop.ru
     logging:
       driver: "json-file"
       options:
@@ -21,3 +20,12 @@ services:
         max-size: "200k"
     volumes:
       - "./webapp/database:/app/database"
+    networks:
+      default:
+      proxy:
+
+networks:
+  default:
+  proxy:
+    name: proxy
+    external: true
