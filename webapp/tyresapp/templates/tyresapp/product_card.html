@@ -67,16 +67,14 @@
            <script>
               let tg = window.Telegram.WebApp;
               let tg_id = tg.initDataUnsafe.user.tg_id;
-           </script>
-           <script>
-             document.getElementById('blueButton').onclick = endOrder;
-             function endOrder() {
+
+              document.getElementById('blueButton').onclick = endOrder;
+              function endOrder() {
                   let form = document.getElementById("blueButton")
                   document.getElementById("tgID").value = tg_id;
                   form.submit()
               }
-            </script>
-            <script>
+
               var url = "{% url 'tyresapp:basket' tg_id=0 %}".replace(0, tg_id);
               document.getElementById("basketUrlID").href = url;
             </script>
