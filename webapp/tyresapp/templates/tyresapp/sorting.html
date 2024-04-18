@@ -12,22 +12,47 @@
           </head>
           
           <body>
-            <div class=frame>
+            <form method="post" class=frame id="sortingID">
+              {% csrf_token %}
               <span  class="end_text">
                 В данный момент сортировка находится в разработке...
               </span>
+              
+              <div>
+                <input type="radio" id="default" name="filter">
+                <label class="v-all v-css" for="default"><span class="sort_text">По умолчанию</span></label>
+              </div>
 
-              {% url 'tyresapp:tyres' as tyres_url %}
-              <a href="{{ tyres_url }}">
-                <div class="bin">
-                  <div class="bin_background">
-                    <div class="blue_bin">
-                      <span class="bin_text">Каталог</span>
-                    </div>
+              <div>
+                <input type="radio" id="new" name="filter">
+                <label class="v-all v-css" for="new"><span class="sort_text">Новинки</span></label>
+              </div>
+
+              <div>
+                <input type="radio" id="ascending" name="filter">
+                <label class="v-all v-css" for="ascending"><span class="sort_text">По возрастанию цены</span></label>
+              </div>
+
+              <div>
+                <input type="radio" id="descending" name="filter">
+                <label class="v-all v-css" for="descending"><span class="sort_text">По убыванию цену</span></label>
+              </div>
+
+              <div class="bin" id="buttonID">
+                <div class="bin_background">
+                  <div class="blue_bin">
+                    <span class="bin_text">Применить</span>
                   </div>
                 </div>
-              </a>
               </div>
-              </div>
+            </form>
+
+            <script>
+              document.getElementById('buttonID').onclick = applySorting;
+              function applySorting() {
+                   let form = document.getElementById("sortingID")
+                   form.submit()
+               }
+             </script>
             </body>
           </html>

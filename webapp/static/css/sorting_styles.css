@@ -212,3 +212,38 @@ body {background: #E5E5E5; }
 	font-size:10px;
 	letter-spacing:0;
 }
+
+
+.v-all {
+	display: flex;
+	flex-direction: row;
+	align-items: start;
+  
+	font-size: 1rem;
+  
+	line-height: 1.25;
+}
+
+.v-css > INPUT:checked {
+	color: #0091ea;
+}
+
+
+.v-css > INPUT:not(:checked) {
+	color: white;
+}
+
+.sort_text {
+	color:rgba(0, 0, 0, 1);
+	position:absolute;
+	font-family:Inter;
+	text-align:center;
+	font-size:12px;
+	letter-spacing:0;
+}
+
+input {
+	width: 50px;
+	height: 50px;
+}
+
