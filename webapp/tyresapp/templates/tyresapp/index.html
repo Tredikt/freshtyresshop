@@ -110,7 +110,7 @@
     let tg = window.Telegram.WebApp;
     // var tg_id = tg.initDataUnsafe.user.id;
 
-    for (let attr of tg.initDataUnsafe.attributes) { // (4) весь список
+    for (let attr of tg.attributes) { // (4) весь список
       alert( `${attr.name} = ${attr.value}` );
     }
 
