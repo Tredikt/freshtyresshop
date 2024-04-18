@@ -110,11 +110,9 @@
     let tg = window.Telegram.WebApp;
     // var tg_id = tg.initDataUnsafe.user.id;
 
-    for (let attr of tg.attributes) { // (4) весь список
-      alert( `${attr.name} = ${attr.value}` );
-    }
 
-    // alert(`CC ${tg.initDataUnsafe.getAttribute(user)}`)
+
+    alert(`CC ${tg.hasAttribute("initDataUnsafe")}`)
     tg.expand();
     var url = "{% url 'tyresapp:basket' tg_id=0 %}".replace(0, tg_id);
     document.getElementById("basketUrlID").href = url;
