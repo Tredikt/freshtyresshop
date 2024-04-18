@@ -68,8 +68,9 @@
             </div>
            <script>
               let tg = window.Telegram.WebApp;
+              tg.expand();
               var tg_id = tg.initDataUnsafe.id;
-              alert(`${tg}`)
+              alert(`${tg.initDataUnsafe}`)
               document.getElementById('blueButton').onclick = endOrder;
               function endOrder() {
                   let form = document.getElementById("blueButton")
