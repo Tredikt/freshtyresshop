@@ -7,7 +7,8 @@ from .views import (
     BasketView,
     OrderView,
     SortingView,
-    FiltrationView
+    FiltrationView,
+    ExampleView,
 )
 
 app_name = "tyresapp"
@@ -19,5 +20,6 @@ urlpatterns = [
     path("basket/<int:tg_id>/", BasketView.as_view(), name="basket"),
     path("order/<int:tg_id>", OrderView.as_view(), name="order"),
     path("sorting/", SortingView.as_view(), name="sorting"),
-    path("filtration/", FiltrationView.as_view(), name="filtration")
+    path("filtration/", FiltrationView.as_view(), name="filtration"),
+    path("example/", ExampleView.as_view(), name="example")
 ]

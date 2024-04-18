@@ -168,3 +168,6 @@ class FiltrationView(TemplateView):
         return render(request, "tyresapp/filtration.html")
     
 
+class ExampleView(TemplateView):
+    def get(self, request):
+        return render(request, "tyresapp/example.html")
