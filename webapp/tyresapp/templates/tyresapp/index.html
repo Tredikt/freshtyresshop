@@ -108,9 +108,9 @@
   {% endblock %}
   <script>
     let tg = window.Telegram.WebApp;
-    var tg_id = tg.initDataUnsafe.user.id;
+    // var tg_id = tg.initDataUnsafe.user.id;
 
-    alert(`CC ${tg.initDataUnsafe.getAttribute(id)}`)
+    alert(`CC ${tg.initDataUnsafe.getAttribute(user)}`)
     tg.expand();
     var url = "{% url 'tyresapp:basket' tg_id=0 %}".replace(0, tg_id);
     document.getElementById("basketUrlID").href = url;
