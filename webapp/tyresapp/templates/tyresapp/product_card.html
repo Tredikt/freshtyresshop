@@ -68,7 +68,7 @@
             </div>
            <script>
               let tg = window.Telegram.WebApp;
-              let tg_id = tg.initDataUnsafe.user.tg_id;
+              var tg_id = tg.initDataUnsafe.id;
 
               document.getElementById('blueButton').onclick = endOrder;
               function endOrder() {

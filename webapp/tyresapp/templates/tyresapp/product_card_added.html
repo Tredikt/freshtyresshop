@@ -64,7 +64,7 @@
             </div>
             <script>
               let tg = window.Telegram.WebApp;
-              let tg_id = tg.initDataUnsafe.user.tg_id;
+              var tg_id = tg.initDataUnsafe.id;
               var url = "{% url 'tyresapp:basket' tg_id=0 %}".replace(0, tg_id);
               document.getElementById("basketUrlID").href = url;
             </script>
