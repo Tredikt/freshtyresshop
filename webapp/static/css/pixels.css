@@ -18,12 +18,23 @@ input {
 	border-radius: 8px;
 }
 
-
-.frame { 
-	background-color:rgba(255, 255, 255, 1);
-	position:relative;
-	width: 900px;
-	height: 100%;
-	margin-left: auto;
-	margin-right: auto;
+@media screen and (min-device-width: 800px) {
+    .frame { 
+        background-color:rgba(255, 255, 255, 1);
+        position:relative;
+        width: 900px;
+        height: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+   }
+@media screen and (min-device-width: 300px) {
+    .frame { 
+        background-color:rgba(255, 255, 255, 1);
+        position:relative;
+        width: 300px;
+        height: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
