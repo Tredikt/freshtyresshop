@@ -170,4 +170,4 @@ class FiltrationView(TemplateView):
 
 class ExampleView(TemplateView):
     def get(self, request):
-        return render(request, "tyresapp/example.html")
+        return render(request, "tyresapp/more_pixels.html")
