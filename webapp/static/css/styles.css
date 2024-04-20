@@ -324,7 +324,7 @@ body {
 	}
 }
 
-@media screen and (min-device-width: 750px) {
+@media (min-resolution: 2dppx) {
 	input {
 		margin-top: 21px;
 		margin-left: 12px;
