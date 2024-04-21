@@ -3,7 +3,7 @@ body {
 	width: 	100%;
 	height: 100%;
 	position: relative;
-	justify-content: center
+	justify-content: center 
   }
 
 
@@ -324,7 +324,7 @@ body {
 	}
 }
 
-@media (min-resolution: 320dpi) {
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
 	input {
 		margin-top: 21px;
 		margin-left: 12px;
