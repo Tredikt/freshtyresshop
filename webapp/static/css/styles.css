@@ -7,7 +7,7 @@ body {
   }
 
 
-@media screen and (min-device-width: 300px) {
+@media screen and (max-resolution: 320dpi) {
 	input {
 		margin-top: 7px;
 		margin-left: 4px;
@@ -324,7 +324,7 @@ body {
 	}
 }
 
-@media (min-resolution: 2dppx) {
+@media (min-resolution: 320dpi) {
 	input {
 		margin-top: 21px;
 		margin-left: 12px;
