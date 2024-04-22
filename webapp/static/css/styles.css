@@ -7,7 +7,7 @@ body {
   }
 
 
-@media screen and (max-resolution: 320dpi) {
+/* @media screen and (max-resolution: 320dpi) {
 	input {
 		margin-top: 7px;
 		margin-left: 4px;
@@ -322,9 +322,9 @@ body {
 		font-size:12px;
 		letter-spacing:0;
 	}
-}
+} */
 
-@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+/* @media only screen and (-webkit-min-device-pixel-ratio: 2) { */
 	input {
 		margin-top: 21px;
 		margin-left: 12px;
@@ -640,4 +640,4 @@ body {
 		letter-spacing:0;
 	}
 }
-}
+/* } */
