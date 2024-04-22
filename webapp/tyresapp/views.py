@@ -90,7 +90,8 @@ class BasketView(ListView):
     def post(self, request, tg_id):
         orders = self.get_queryset(tg_id=tg_id)
         for order in orders:
-            Order.objects.delete(pk=order.pk)
+            elem = Order.objects.get(pk=order.pk)
+            elem.delete()
 
         context = {"tyres": [], "tg_id": tg_id, "end_price": 0}
         return render(request, "tyresapp/basket.html", context=context, status=404)

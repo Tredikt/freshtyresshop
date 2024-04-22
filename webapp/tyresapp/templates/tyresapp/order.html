@@ -32,9 +32,10 @@
               </span>
               
               <div class="mar">
-                <input id="fio" type="text" placeholder="ФИО" name="fio">
-                <input id="phone" type="text" placeholder="Телефон" name="phone">
-                <input id="email" type="text" placeholder="Email" name="email">
+                <input id="fio" type="text" placeholder="ФИО" name="fio" required>
+                <input id="phone" type="text" placeholder="Телефон" name="phone" required>
+                <input id="email" type="text" placeholder="Email" name="email" required>
+                <div id="error"></div>
               </div>
               
 
@@ -71,11 +72,36 @@
                 </div>
               </div>
               <script>
-                document.getElementById('endOrderID').onclick = endOrder;
-                function endOrder() {
-                     let form = document.getElementById("userData")
-                     form.submit()
-                 }
+                let order = document.getElementById('endOrderID');
+                order.addEventListener("click", () => {
+                  // document.getElementById("error").innerText = ""
+                  let fio = document.getElementById("fio").value;
+                  let phone = document.getElementById("phone").value;
+                  let email = document.getElementById("email").value;
+                  
+                  if (fio.length < 5) {
+                    // document.getElementById("error").innerText = "Ошибка в фио";
+                    let in_fio = document.getElementById("fio")
+                    in_fio.placeholder = "Ошибка в имени. Введите ФИО";
+                    return;
+                  }
+
+                  if (phone.length < 12) {
+                    // document.getElementById("error").innerText = "Ошибка в номере";
+                    document.getElementById("phone").placeholder = "Ошибка в номере. Попробуйте снова";
+                    return;
+                  }
+
+                  if (email.length < 8) {
+                    // document.getElementById("error").innerText = "Ошибка в email";
+                    document.getElementById("email").placeholder = "Ошибка в email. Попробуйте снова";
+                    return;
+                  }
+
+      
+                  let form = document.getElementById("userData")
+                  form.submit()
+                });
                </script>
             </form>
           </body>
