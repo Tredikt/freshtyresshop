@@ -1,6 +1,5 @@
-body {background: #E5E5E5; }
-
 @media screen and (max-resolution: 320dpi) {
+	body {background: #E5E5E5; width: 100%; height: 100%;}
 	.frame { 
 		background-color:rgba(255, 255, 255, 1);
 		position:relative;
@@ -10,9 +9,23 @@ body {background: #E5E5E5; }
 		margin-right: auto;
 	}
 
+	input {
+		margin-top: 7px;
+		margin-left: 4px;
+		width: 252px;
+		height: 36px;
+		font-size: 10px;
+		padding: 6px 0 4px 10px;
+		border: 1px solid #cecece;
+		background: #F6F6f6;
+		border-radius: 8px;
+	}
+
+
 	.bin {
-		position: fixed; 
-		bottom: 0px;
+	position: fixed; 
+	bottom: 0px;
+	cursor: pointer;
 	}
 
 	.bin_background { 
@@ -26,6 +39,7 @@ body {background: #E5E5E5; }
 		position:relative;
 		bottom: 1px;
 	}
+	
 
 	.blue_bin { 
 		background-color:rgba(0, 61.00000016391277, 255, 1);
@@ -571,10 +585,143 @@ body {background: #E5E5E5; }
 		left:2px;
 		top:10px;
 	}
+	
+	.company_title { 
+		color:rgba(0, 0, 0, 1);
+		width:170px;
+		height:10px;
+		position:absolute;
+		left:70px;
+		top:5px;
+		font-family:Inter;
+		text-align:center;
+		font-size:12px;
+		letter-spacing:0;
+	}
 
+	.bot_title { 
+		color:rgba(0, 0, 0, 0.6000000238418579);
+		width:139px;
+		height:12px;
+		position:absolute;
+		left:90px;
+		top:20px;
+		font-family:Inter;
+		text-align:center;
+		font-size:10px;
+		letter-spacing:0;
+	}
+
+	textarea {
+	margin-top: 7px;
+	margin-left: 10px;
+	width: 280px;
+	height: 150px;
+	font-size: 12px;
+	padding: 6px 0 4px 10px;
+	border: 1px solid #cecece;
+	background: #F6F6f6;
+	border-radius: 8px;
+	}
+
+	p {
+	display: block;
+	margin-left: 10px;
+	margin-top: 10px;
+	font-family:Inter;
+	text-align:left;
+	font-size:8px;
+	}
+	
+	.comment_text { 
+	color:rgba(0, 0, 0, 1);
+	width:140px;
+	height:15px;
+	display: block;
+	margin-left: 10px;
+	margin-top: 20px;
+	font-family:Inter;
+	text-align:left;
+	font-size:12px;
+	letter-spacing:0;
+	}
+
+	.text_location { 
+		color:rgba(0, 0, 0, 1);
+		width:239px;
+		height:45px;
+		display: block;
+		margin-left: 10px;
+		margin-top: 20px;
+		left:13px;
+		top:186px;
+		font-family:Inter;
+		text-align:left;
+		font-size:14px;
+		letter-spacing:0;
+	}
+
+	.recipient { 
+	color:rgba(0, 0, 0, 1);
+	width:140px;
+	height:15px;
+	position:absolute;
+	left:13px;
+	top:32px;
+	font-family:Inter;
+	text-align:left;
+	font-size:14px;
+	letter-spacing:0;
+	}
+
+	.mar {
+	margin-top: 5px;
+	}
+
+	.cost_text { 
+		color:rgba(0, 0, 0, 1);
+		width:120px;
+		height:12px;
+		position:absolute;
+		left:20px;
+		bottom: 100px;
+		font-family:Inter;
+		text-align:left;
+		font-size:12px;
+		letter-spacing:0;
+	}
+
+	.rules { 
+		color:rgba(0, 0, 0, 1);
+		width:220px;
+		height:16px;
+		position:absolute;
+		left: 40px;
+		bottom: 70px;
+		font-family:Inter;
+		text-align:center;
+		font-size:9px;
+		letter-spacing:0;
+	}
+
+	.cost { 
+		color:rgba(0, 0, 0, 1);
+		width:70px;
+		height:12px;
+		position:absolute;
+		right: 20px;
+		bottom: 100px;
+		font-family:Inter;
+		text-align:right;
+		font-size:12px;
+		letter-spacing:0;
+	}
 }
 
+
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+	body {background: #E5E5E5; width: 100%; height: 1800px;}
+
 	.frame { 
 		background-color:rgba(255, 255, 255, 1);
 		position:relative;
@@ -584,9 +731,56 @@ body {background: #E5E5E5; }
 		margin-right: auto;
 	}
 
+	input {
+		margin-top: 21px;
+		margin-left: 12px;
+		width: 756px;
+		height: 108px;
+		font-size: 30px;
+		padding: 18px 0 12px 30px;
+		border: 3px solid #cecece;
+		background: #F6F6f6;
+		border-radius: 72px;
+	}
+
+	.cost_text { 
+		color:rgba(0, 0, 0, 1);
+		width:360px;
+		height:36px;
+		position:absolute;
+		left:60px;
+		bottom: 300px;
+		font-family:Inter;
+		text-align:left;
+		font-size:36px;
+		letter-spacing:0;
+	}
+
+	p {
+		display: block;
+		margin-left: 30px;
+		margin-top: 30px;
+		font-family:Inter;
+		text-align:left;
+		font-size:24px;
+	}
+
+	textarea {
+		margin-top: 21px;
+		margin-left: 30px;
+		width: 840px;
+		height: 450px;
+		font-size: 12px;
+		padding: 6px 0 4px 10px;
+		border: 1px solid #cecece;
+		background: #F6F6f6;
+		border-radius: 8px;
+	}
+
 	.bin {
 		position: fixed; 
 		bottom: 0px;
+		cursor: pointer;
 	}
 
 	.bin_background { 
@@ -599,6 +793,50 @@ body {background: #E5E5E5; }
 		height:150px;
 		position:relative;
 		bottom: 3px;
+	}
+
+	.comment_text { 
+		color:rgba(0, 0, 0, 1);
+		width:420px;
+		height:45px;
+		display: block;
+		margin-left: 30px;
+		margin-top: 60px;
+		font-family:Inter;
+		text-align:left;
+		font-size:36px;
+		letter-spacing:0;
+	}
+	.text_location { 
+		color:rgba(0, 0, 0, 1);
+		width:720px;
+		height:135px;
+		display: block;
+		margin-left: 30px;
+		margin-top: 60px;
+		left:39px;
+		top:558px;
+		font-family:Inter;
+		text-align:left;
+		font-size:42px;
+		letter-spacing:0;
+	}
+
+	.mar {
+		margin-top: 90px;
+	}
+
+	.recipient { 
+		color:rgba(0, 0, 0, 1);
+		width:420px;
+		height:45px;
+		position:absolute;
+		left:39px;
+		top:96px;
+		font-family:Inter;
+		text-align:left;
+		font-size:42px;
+		letter-spacing:0;
 	}
 
 	.blue_bin { 
@@ -690,6 +928,18 @@ body {background: #E5E5E5; }
 		display: inline-block;
 	}
 
+	.company_title { 
+		color:rgba(0, 0, 0, 1);
+		width:510px;
+		height:30px;
+		position:absolute;
+		left:210px;
+		top:15px;
+		font-family:Inter;
+		text-align:center;
+		font-size:36px;
+		letter-spacing:0;
+	}
 
 	.e18_1294 { 
 		width:216px;
@@ -1146,4 +1396,42 @@ body {background: #E5E5E5; }
 		top:30px;
 	}
 
+		.rules { 
+			color:rgba(0, 0, 0, 1);
+			width:660px;
+			height:48px;
+			position:absolute;
+			left: 120px;
+			bottom: 210px;
+			font-family:Inter;
+			text-align:center;
+			font-size:27px;
+			letter-spacing:0;
+		}
+
+		.cost { 
+			color:rgba(0, 0, 0, 1);
+			width:210px;
+			height:36px;
+			position:absolute;
+			right: 60px;
+			bottom: 300px;
+			font-family:Inter;
+			text-align:right;
+			font-size:36px;
+			letter-spacing:0;
+		}
+
+	.bot_title { 
+		color:rgba(0, 0, 0, 0.6000000238418579);
+		width:420px;
+		height:36px;
+		position:absolute;
+		left:270px;
+		top:60px;
+		font-family:Inter;
+		text-align:center;
+		font-size:30px;
+		letter-spacing:0;
+	}
 }

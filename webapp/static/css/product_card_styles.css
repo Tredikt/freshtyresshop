@@ -1,4 +1,5 @@
-body {background: #E5E5E5;}
+body {background: #E5E5E5; width: 100%; height: 100%px; position: relative;
+	justify-content: center }
 
 @media screen and (max-resolution: 320dpi) {
 	.frame { 
@@ -606,7 +607,7 @@ body {background: #E5E5E5;}
 		top:15px;
 		font-family:Inter;
 		text-align:center;
-		font-size:12px;
+		font-size:36px;
 		letter-spacing:0;
 	}
 	
