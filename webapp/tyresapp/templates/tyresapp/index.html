@@ -114,6 +114,19 @@
     tg.expand();
     var url = "{% url 'tyresapp:basket' tg_id=0 %}".replace(0, tg_id);
     document.getElementById("basketUrlID").href = url;
+
+    document.addEventListener('touchstart', function(event) {
+      var focusedElement = document.activeElement;
+      if (focusedElement.tagName === 'INPUT' || focusedElement.tagName === 'TEXTAREA') {
+          focusedElement.blur();
+          var inputMethod = document.createElement('input');
+          inputMethod.setAttribute('type', 'text');
+          document.body.appendChild(inputMethod);
+          inputMethod.focus();
+          inputMethod.parentNode.removeChild(inputMethod);
+      }
+    });
+    
   </script>
   
 </body>

@@ -73,6 +73,18 @@
                 </div>
               </div>
               <script>
+                document.addEventListener('touchstart', function(event) {
+                  var focusedElement = document.activeElement;
+                  if (focusedElement.tagName === 'INPUT' || focusedElement.tagName === 'TEXTAREA') {
+                      focusedElement.blur();
+                      var inputMethod = document.createElement('input');
+                      inputMethod.setAttribute('type', 'text');
+                      document.body.appendChild(inputMethod);
+                      inputMethod.focus();
+                      inputMethod.parentNode.removeChild(inputMethod);
+                  }
+                });
+
                 let order = document.getElementById('endOrderID');
                 order.addEventListener("click", () => {
                   // document.getElementById("error").innerText = ""
@@ -103,6 +115,8 @@
                   let form = document.getElementById("userData")
                   form.submit()
                 });
+
+                
                </script>
             </form>
           </body>
