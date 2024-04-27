@@ -1,3 +1,5 @@
+Telegram.WebApp.ready();
+
 function endOrder() {
     let form = document.createElement("form")
     form.method = "POST"

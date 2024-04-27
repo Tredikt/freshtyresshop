@@ -2,12 +2,13 @@ body {
 	background: #E5E5E5;
 	width: 	100%;
 	height: 100%;
+	zoom: 80%;
 	position: relative;
 	justify-content: center 
   }
 
 
-@media screen and (max-resolution: 320dpi) {
+  @media screen and (max-resolution: 320dpi) {
 	input {
 		margin-top: 7px;
 		margin-left: 4px;
