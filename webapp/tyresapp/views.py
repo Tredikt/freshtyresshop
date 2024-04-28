@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 
 from aiogram import Bot
 
-from .models import Tyre, Order
+from .models import Tyre, Order, Sorting
 
 
 class TyresListView(ListView):
@@ -88,12 +88,31 @@ class BasketView(ListView):
         return render(request, "tyresapp/basket.html", context=context, status=404)
 
     def post(self, request, tg_id):
-        orders = self.get_queryset(tg_id=tg_id)
-        for order in orders:
-            elem = Order.objects.get(pk=order.pk)
-            elem.delete()
+        isClear = request.post.get("isClear")
+        if isClear == "1":
+            orders = self.get_queryset(tg_id=tg_id)
+            for order in orders:
+                elem = Order.objects.get(pk=order.pk)
+                elem.delete()
 
-        context = {"tyres": [], "tg_id": tg_id, "end_price": 0}
+            context = {"tyres": [], "tg_id": tg_id, "end_price": 0}
+
+        else:
+            tyre_id = request.post.get("deleteOne")
+            orders = self.get_queryset(tg_id=tg_id)
+            for order in orders:
+                if order.tyre_id == int(tyre_id):
+                    elem = Order.objects.get(pk=order.pk)
+                    elem.delete()
+
+            tyres = []
+            end_price = 0
+            for elem in orders:
+                end_price += Tyre.objects.filter(pk=elem.tyre_id)[0].price
+                tyres.append(Tyre.objects.filter(pk=elem.tyre_id)[0])
+
+            context = {"tyres": tyres, "tg_id": tg_id, "end_price": end_price}
+
         return render(request, "tyresapp/basket.html", context=context, status=404)
 
 
@@ -160,8 +179,36 @@ class OrderView(TemplateView):
 
 
 class SortingView(TemplateView):
-    def get(self, request):
+    def get(self, request, tg_id):
         return render(request, "tyresapp/sorting.html")
+
+    def post(self, request, tg_id):
+        method = request.POST.get("method")
+        # Sorting.objects.create(
+        #     tg_id=tg_id,
+        #     method=method
+        # )
+
+        tyres = self.get_queryset()
+        orders = self.get_orders()
+        tyres_list = []
+        tyres_pk_list = [order.tyre_id for order in orders]
+
+        for tyre in tyres:
+            if tyre.status not in ["booked", "sold"] and tyre.pk not in tyres_pk_list:
+                tyres_list.append(tyre)
+
+        if method == "new":
+            tyres_list = tyres_list.sort(key=lambda lst: lst.created_at)
+
+        elif method == "ascending":
+            tyres_list = tyres_list.sort(key=lambda lst: lst.price)
+
+        elif method == "descending":
+            tyres_list = tyres_list.sort(key=lambda lst: lst.price, reverse=True)
+
+        context = {"tyres": tyres_list, "search_value": ""}
+        return render(request, "tyresapp/index.html", context=context)
 
 
 class FiltrationView(TemplateView):

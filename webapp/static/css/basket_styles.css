@@ -17,6 +17,10 @@ body {
 		margin-right: auto;
 	}
 
+	.cross {
+		position: absolute;
+	}
+
 	.bin {
 		position: fixed; 
 		bottom: 0px;

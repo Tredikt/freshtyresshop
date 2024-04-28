@@ -24,6 +24,7 @@ class Tyre(models.Model):
     season = models.CharField(max_length=20)
     status = models.CharField(max_length=20, default=0)
     location = models.CharField(max_length=100)
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"Tyre(pk={self.pk}, name={self.name!r})"
@@ -47,3 +48,13 @@ class TyreImage(models.Model):
 class Order(models.Model):
     tg_id = models.IntegerField(default=0)
     tyre_id = models.IntegerField(default=0)
+
+
+class Sorting(models.Model):
+    tg_id = models.IntegerField(default=0)
+    method = models.CharField(max_length=30)
+
+
+class Filtration(models.Model):
+    category = models.CharField(max_length=50)
+    subcategory = models.CharField(max_length=30)
