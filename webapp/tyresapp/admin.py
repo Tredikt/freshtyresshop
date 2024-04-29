@@ -12,11 +12,11 @@ import random
 import string
 
 
-@admin.action(description="TEST")
-def test(modeladmin: admin.ModelAdmin, user_request: HttpRequest, queryset: QuerySet):
-    tyre = Tyre()
-    new_photo = TyreImage()
-    new_photo.tyre_id = 2
+# @admin.action(description="TEST")
+# def test(modeladmin: admin.ModelAdmin, user_request: HttpRequest, queryset: QuerySet):
+#     tyre = Tyre()
+#     new_photo = TyreImage()
+#     new_photo.tyre_id = 2
 
 
 @admin.action(description="import tyres")
