@@ -56,5 +56,6 @@ class Sorting(models.Model):
 
 
 class Filtration(models.Model):
+    tg_id = models.IntegerField(default=0)
     category = models.CharField(max_length=50)
     subcategory = models.CharField(max_length=30)

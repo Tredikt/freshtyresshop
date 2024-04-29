@@ -7,6 +7,7 @@ from django.contrib.auth.models import User
 
 from aiogram import Bot
 
+from .config import token, group_id
 from .models import Tyre, Order, Sorting
 
 
@@ -159,9 +160,9 @@ class OrderView(TemplateView):
                         f"Email: {email}\n\n" \
                         f"Комментарий к заказу: {comment}"
 
-            bot = Bot(token="7085291557:AAFY3UT9CJyDj4GZIEBCFQVZ3SpYu-_PaSM")
+            bot = Bot(token=token)
             await bot.send_message(
-                chat_id=-1002051098884,
+                chat_id=group_id,
                 text=text + user_data
             )
 

@@ -4,11 +4,13 @@ from django.http import HttpRequest, HttpResponse
 
 from django.core.files.base import ContentFile
 from .models import Tyre, TyreImage
+from .config import access_token
 
 from requests import request
 import requests
 import random
 import string
+
 
 @admin.action(description="TEST")
 def test(modeladmin: admin.ModelAdmin, user_request: HttpRequest, queryset: QuerySet):
@@ -19,7 +21,6 @@ def test(modeladmin: admin.ModelAdmin, user_request: HttpRequest, queryset: Quer
 
 @admin.action(description="import tyres")
 def import_tyres(modeladmin: admin.ModelAdmin, user_request: HttpRequest, queryset: QuerySet):
-    access_token = "80e9d6f8d66283f2d16b974666020bf46ae83d7a"
     response = request(
         "GET",
         "https://api.moysklad.ru/api/remap/1.2/entity/assortment",
