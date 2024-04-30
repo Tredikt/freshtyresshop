@@ -23,7 +23,7 @@
           <input type="search" placeholder="Я ищу..." name="search" value="{{ search_value }}">
         </form>
       
-        <a href="{% url 'tyresapp:sorting' %}">
+        <a id="sortID" href="{% url 'tyresapp:sorting' %}">
           <div class="filters_block">
             <img class="filters_photo" src="{% static 'photos/filters.png' %}" alt="">
           </div>
@@ -114,6 +114,9 @@
     tg.expand();
     var url = "{% url 'tyresapp:basket' tg_id=0 %}".replace(0, tg_id);
     document.getElementById("basketUrlID").href = url;
+
+    var sorting_url = "{% url 'tyresapp:sorting' tg_id=0 %}".replace(0, tg_id);
+    document.getElementById("sortID").href = url;
 
     document.addEventListener('touchstart', function(event) {
       var focusedElement = document.activeElement;
