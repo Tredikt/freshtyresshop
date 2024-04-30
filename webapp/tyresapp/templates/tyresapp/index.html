@@ -30,7 +30,7 @@
         </a>
       </div>
     
-      <a href="{% url 'tyresapp:filtration' %}" style="text-decoration: none;">
+      <a id="filterID" href="{% url 'tyresapp:filtration' %}" style="text-decoration: none;">
         <div class="filters">
             <div class="card_text">
               <div class="filter_name">
@@ -116,7 +116,10 @@
     document.getElementById("basketUrlID").href = url;
 
     var sorting_url = "{% url 'tyresapp:sorting' tg_id=0 %}".replace(0, tg_id);
-    document.getElementById("sortID").href = url;
+    document.getElementById("sortID").href = sorting_url;
+
+    var filters_url = "{% url 'tyresapp:filtration' tg_id=0 %}".replace(0, tg_id);
+    document.getElementById("filterID").href = filters_url;
 
     document.addEventListener('touchstart', function(event) {
       var focusedElement = document.activeElement;

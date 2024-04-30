@@ -213,7 +213,7 @@ class SortingView(TemplateView):
 
 
 class FiltrationView(TemplateView):
-    def get(self, request):
+    def get(self, request, tg_id):
         return render(request, "tyresapp/filtration.html")
     
 

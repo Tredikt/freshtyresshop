@@ -19,7 +19,7 @@ urlpatterns = [
     path("tyre_detail/<int:pk>/<int:tg_id>", TyreDetails.as_view(), name="tyre_details"),
     path("basket/<int:tg_id>/", BasketView.as_view(), name="basket"),
     path("order/<int:tg_id>", OrderView.as_view(), name="order"),
-    path("sorting/", SortingView.as_view(), name="sorting"),
-    path("filtration/", FiltrationView.as_view(), name="filtration"),
+    path("sorting/<int:tg_id>", SortingView.as_view(), name="sorting"),
+    path("filtration/<int:tg_id>", FiltrationView.as_view(), name="filtration"),
     path("example/", ExampleView.as_view(), name="example")
 ]
