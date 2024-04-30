@@ -1,16 +1,16 @@
 {% load static %}
-<html lang="en">
+<html lang="en"> 
           <head>
             <meta charset="utf-8">
           
             <title>Tyre detail</title>
             <meta name="description" content="Figma htmlGenerator">
             <meta name="author" content="htmlGenerator">
-            <meta name="viewport" content="width=device-width, initial-scale=0.4, maximum-scale=1.0">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
 
             <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
 
-            <link rel="stylesheet" href="{% static 'css/product_card_styles.css' %}">
+            <link rel="stylesheet" href="{% static 'css/product_card_styles3.css' %}">
             <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
           </head>
@@ -43,7 +43,7 @@
                 </span>
                 <span  class="price">{{ tyre.price }} ₽</span>
                 <span  class="e29_11">Комплект, 4 шт.</span>
-                <span  class="e29_12">
+                <span  class="e29_12"> 
                   Остаток протектора: <b>{{ tyre.tread_remain }}</b><br>
                   Состояние: <b>{{ tyre.stage }}</b><br>
                   Сезон: <b>{{ tyre.season }}</b><br>

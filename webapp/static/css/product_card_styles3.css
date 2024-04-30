@@ -11,8 +11,8 @@ body {
     background-color: rgba(255, 255, 255, 1);
     position: relative;
     width: auto;
-    max-width: 330px; 
-    height: 680px;
+    max-width: 300px; 
+    height: 650px;
     margin: 0 auto; 
 }
 
@@ -44,7 +44,7 @@ body {
 		padding-top: 5px;
 		padding-bottom: 5px;
 
-		width:360px;
+		width:300px;
 		height:50px;
 		position:relative;
 		bottom: 1px;
@@ -53,7 +53,7 @@ body {
 
 	.blue_bin { 
 		background-color:rgba(0, 61.00000016391277, 255, 1);
-		width:310px;
+		width:280px;
 		height:40px;
 		margin-left: 10px;
 		position:relative;
