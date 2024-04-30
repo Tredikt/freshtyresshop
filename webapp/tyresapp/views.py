@@ -180,6 +180,12 @@ class OrderView(TemplateView):
 
 
 class SortingView(TemplateView):
+    def get_tires(self):
+        return Tyre.objects.all()
+
+    def get_orders(self):
+        return Order.objects.all()
+
     def get(self, request, tg_id):
         return render(request, "tyresapp/sorting.html")
 
@@ -190,7 +196,7 @@ class SortingView(TemplateView):
         #     method=method
         # )
 
-        tyres = self.get_queryset()
+        tyres = self.get_orders()
         orders = self.get_orders()
         tyres_list = []
         tyres_pk_list = [order.tyre_id for order in orders]
