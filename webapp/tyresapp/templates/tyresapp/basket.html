@@ -95,6 +95,13 @@
                       </div>
                     </div>
                   </a>
+
+                  <script>
+                    let tg = window.Telegram.WebApp;
+                    let tg_id = tg.initDataUnsafe.user.id;
+                    var url = "{% url 'tyresapp:order' tg_id=0 %}".replace(0, tg_id);
+                    document.getElementById("basketUrlID").href = url;
+                  </script>
                 {% else %}
                   <a href="{% url 'tyresapp:tyres' %}">
                     <div class="bin">
@@ -131,12 +138,6 @@
                 inputBin.value = 1;
                 form.submit()
               }
-            </script>
-            <script>
-              let tg = window.Telegram.WebApp;
-              let tg_id = tg.initDataUnsafe.user.id;
-              var url = "{% url 'tyresapp:order' tg_id=0 %}".replace(0, tg_id);
-              document.getElementById("basketUrlID").href = url;
             </script>
           {% endblock %}  
   </body>
