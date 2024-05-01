@@ -55,7 +55,7 @@ class TyreDetails(DetailView):
         return render(request, "tyresapp/product_card.html", context=context)
 
     def post(self, request, pk, tg_id):
-        tg_id = int(request.POST.get("tg_id"))
+        # tg_id = int(request.POST.get("tg_id"))
         Order.objects.create(
             tg_id=tg_id,
             tyre_id=pk
@@ -89,7 +89,7 @@ class BasketView(ListView):
         return render(request, "tyresapp/basket.html", context=context, status=404)
 
     def post(self, request, tg_id):
-        isClear = request.post.get("isClear")
+        isClear = request.POST.get("isClear")
         if isClear == "1":
             orders = self.get_queryset(tg_id=tg_id)
             for order in orders:
@@ -99,7 +99,7 @@ class BasketView(ListView):
             context = {"tyres": [], "tg_id": tg_id, "end_price": 0}
 
         else:
-            tyre_id = request.post.get("deleteOne")
+            tyre_id = request.POST.get("deleteOne")
             orders = self.get_queryset(tg_id=tg_id)
             for order in orders:
                 if order.tyre_id == int(tyre_id):

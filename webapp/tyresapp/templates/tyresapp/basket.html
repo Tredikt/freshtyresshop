@@ -45,10 +45,8 @@
                       {% for image in tyre.images.all %}
                         <img  class="product_image" src="{{ image.image.url }}">
                       {% endfor %}
-                      
-                      <div class="cross" id="{{ tyre.tyre_id }}">
-                        
-                      </div>
+                    
+                      <img class="cross" src="{% static 'photos/cross.png' %}" id="{{ tyre.pk }}">
 
                       <div class="model">
                         {{ tyre.model }}<br>
@@ -71,7 +69,9 @@
                       </div> -->
                     </div>
                   {% endfor %}
-                {% else %}
+                {% endif %}
+
+                {% if 6 >= tyres|length %}
                   <script>
                     let frameObject = document.getElementById("clear_bin")
                     frameObject.style.height = "100%";
@@ -117,7 +117,7 @@
                   button = buttonItems[index];
                   button.addEventListener('click', function (elem) {
                       let form = document.getElementById("clear_bin")
-                      document.getElementById("deleteTyre").value = elem.id;
+                      document.getElementById("deleteTyre").value = button.id;
                       form.submit()
                   });
               }

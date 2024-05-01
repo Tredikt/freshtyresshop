@@ -122,6 +122,23 @@ input {
 		letter-spacing:0;
 	}
 
+	.cross { 
+		color:rgba(0, 0, 0, 1);
+		width:20px;
+		height:20px;
+		position:absolute;
+		right: 10px;
+		top:5px;
+		font-family:Inter;
+		text-align:left;
+		font-size:15px;
+		letter-spacing:0;
+		cursor: pointer;
+		background-repeat:no-repeat;
+		background-size:cover;
+	}
+
+
 	.product_image {
 		position: relative;
 		width: 95px;
