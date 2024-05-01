@@ -1,60 +1,61 @@
 {% load static %}
 <html lang="en"> 
-          <head>
-            <meta charset="utf-8">
-          
-            <title>Sorting</title>
-            <meta name="description" content="Figma htmlGenerator">
-            <meta name="author" content="htmlGenerator">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta charset="utf-8">
+  
+    <title>Sorting</title>
+    <meta name="description" content="Figma htmlGenerator">
+    <meta name="author" content="htmlGenerator">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/sorting_styles.css' %}">
+  </head>
+  
+  <body>
+    <form method="post" class=frame id="sortingID">
+      {% csrf_token %}
+        <a href="{{ tyres_url }}">
+          <span  class="back_text">Назад</span>
+          <img class="back_image" src="{% static 'photos/image_1.png' %}">
+        </a>
 
-            <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
+        <span class="sorting_text">Сортировка</span>
+        <div>
+          <label for="default" class="radio-label">По умолчанию</label>
+          <input type="radio" id="default" name="filter" class="radio-button">
+        </div>
 
-            <link rel="stylesheet" href="{% static 'css/end_order_styless.css' %}">
-          </head>
-          
-          <body>
-            <form method="post" class=frame id="sortingID">
-              {% csrf_token %}
-              <span  class="end_text">
-                В данный момент сортировка находится в разработке...
-              </span>
-              
-              <div>
-                <input type="radio" id="default" name="filter">
-                <label class="v-all v-css" for="default"><span class="sort_text">По умолчанию</span></label>
-              </div>
+        <div class="tests">
+          <label for="new" class="radio-label">Новинки</label>
+          <input type="radio" id="new" name="filter" class="radio-button">
+        </div>
+        
+        <div class="tests">
+          <label for="ascending" class="radio-label">По возрастанию цены</label>
+          <input type="radio" id="ascending" name="filter" class="radio-button">
+        </div>
+        
+        <div class="tests">
+          <label for="descending" class="radio-label">По убыванию цену</label>
+          <input type="radio" id="descending" name="filter" class="radio-button">
+        </div>
 
-              <div>
-                <input type="radio" id="new" name="filter">
-                <label class="v-all v-css" for="new"><span class="sort_text">Новинки</span></label>
-              </div>
+        <div class="bin" id="buttonID">
+          <div class="bin_background">
+            <div class="blue_bin">
+              <span class="bin_text">Применить</span>
+            </div>
+          </div>
+        </div>
+    </form>
 
-              <div>
-                <input type="radio" id="ascending" name="filter">
-                <label class="v-all v-css" for="ascending"><span class="sort_text">По возрастанию цены</span></label>
-              </div>
-
-              <div>
-                <input type="radio" id="descending" name="filter">
-                <label class="v-all v-css" for="descending"><span class="sort_text">По убыванию цену</span></label>
-              </div>
-
-              <div class="bin" id="buttonID">
-                <div class="bin_background">
-                  <div class="blue_bin">
-                    <span class="bin_text">Применить</span>
-                  </div>
-                </div>
-              </div>
-            </form>
-
-            <script>
-              document.getElementById('buttonID').onclick = applySorting;
-              function applySorting() {
-                   let form = document.getElementById("sortingID")
-                   form.submit()
-               }
-             </script>
-            </body>
-          </html>
+      <script>
+        document.getElementById('buttonID').onclick = applySorting;
+        function applySorting() {
+             let form = document.getElementById("sortingID")
+             form.submit()
+         }
+       </script>
+      </body>
+    </html>
