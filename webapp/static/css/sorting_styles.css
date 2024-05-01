@@ -17,8 +17,8 @@ body {
 }
 	
 .bin {
-	position: fixed; 
-	bottom: 20px;
+	position: absolute; 
+	bottom: 70px;
 	margin-left: 20px;
 	cursor: pointer;
 	}
