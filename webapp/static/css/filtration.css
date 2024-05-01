@@ -88,7 +88,7 @@ input {
     padding: .6em 1.4em .5em .8em; width: 100%; 
     max-width: 80%; 
     box-sizing: border-box; 
-    margin: 0; 
+    margin: 25px auto; 
     border: 1px solid #aaa;
      box-shadow: 0 1px 0 1px rgba(0,0,0,.04); 
     border-radius: .5em;
