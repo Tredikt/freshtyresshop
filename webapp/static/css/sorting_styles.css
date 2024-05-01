@@ -53,7 +53,7 @@ body {
 		height:10px;
 		position:absolute;
 		left:20px;
-		top:10px;
+		top:11px;
 		font-family:Inter;
 		text-align:left;
 		font-size:12px;
@@ -66,7 +66,7 @@ body {
 		height:15px;
 		position:absolute;
 		left:2px;
-		top:10px;
+		top:11px;
 	}
 	.blue_bin { 
 		background-color:rgba(0, 61.00000016391277, 255, 1);
@@ -136,14 +136,45 @@ body {
 		top:10px;
 	}
 	.radio-button {
-  margin-right: 10px;
-  margin-top: 3px;
+		margin-left: 130px;
 }
-
+.radio-button2 {
+  margin-left: 130px;
+  }
+  .radio-button3 {
+	margin-left: 35px;
+  }
+  .radio-button4 {
+	margin-left: 66px;
+  }
 .radio-label {
   display: inline-block;
-  margin-top: 53px;
+  font-size: 17px;
+  font-family:Inter;
+  margin-left: 20px;
+  margin-top: 70px;
 }
+.radio-label2 {
+	display: inline-block;
+	font-size: 17px;
+	font-family:Inter;
+	margin-left: 20px;
+  }
+
+  .radio-label3 {
+	display: inline-block;
+	font-size: 17px;
+	font-family:Inter;
+	margin-left: 20px;
+
+  }
+  .radio-label4 {
+	display: inline-block;
+	font-size: 17px;
+	font-family:Inter;
+	margin-left: 20px;
+  }
+	
 
 	
 	.bot_title { 
