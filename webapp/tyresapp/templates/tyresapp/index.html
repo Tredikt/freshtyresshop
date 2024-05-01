@@ -23,14 +23,14 @@
           <input type="search" placeholder="Я ищу..." name="search" value="{{ search_value }}">
         </form>
       
-        <a id="sortID" href="">
+        <a id="sortID" href="{% url 'tyresapp:sorting' %}">
           <div class="filters_block">
             <img class="filters_photo" src="{% static 'photos/filters.png' %}" alt="">
           </div>
         </a>
       </div>
     
-      <a id="filterID" href="" style="text-decoration: none;">
+      <a id="filterID" href="{% url 'tyresapp:filtration' %}" style="text-decoration: none;">
         <div class="filters">
             <div class="card_text">
               <div class="filter_name">
@@ -114,12 +114,6 @@
     tg.expand();
     var url = "{% url 'tyresapp:basket' tg_id=0 %}".replace(0, tg_id);
     document.getElementById("basketUrlID").href = url;
-
-    var sorting_url = "{% url 'tyresapp:sorting' tg_id=0 %}".replace(0, tg_id);
-    document.getElementById("sortID").href = sorting_url;
-
-    var filters_url = "{% url 'tyresapp:filtration' tg_id=0 %}".replace(0, tg_id);
-    document.getElementById("filterID").href = filters_url;
 
     document.addEventListener('touchstart', function(event) {
       var focusedElement = document.activeElement;

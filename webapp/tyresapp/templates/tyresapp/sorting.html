@@ -15,7 +15,8 @@
   <body>
     <form method="post" class=frame id="sortingID">
       {% csrf_token %}
-        <a href="">
+        <input type="hidden" name="ff" id="final_filter">
+        <a href="{% url 'tyresapp:tyres' %}">
           <span  class="back_text">Назад</span>
           <img class="back_image" src="{% static 'photos/image_1.png' %}">
         </a>
@@ -27,7 +28,7 @@
         </div>
 
         <div class="tests">
-          <label for="new" class="radio-label2">Новинки</label>
+          <label for="new" id="ff" class="radio-label2">Новинки</label>
           <input type="radio" id="new" name="filter" class="radio-button2">
         </div>
         
@@ -49,13 +50,59 @@
           </div>
         </div>
     </form>
+       <script>
+         let elem = document.getElementById('default')
+         elem.onclick = defaultFunc;
+         function defaultFunc() {
+            document.getElementById("final_filter").value = "default";
+        }
+       </script>
+
+      <script>
+        let elem_2 = document.getElementById('new')
+        elem_2.onclick = newFunc;
+        function newFunc() {
+          console.log("dfasd")
+            document.getElementById("final_filter").value = "new";
+        }
+      </script>
+
+      <script>
+        let elem_3 = document.getElementById('ascending')
+        elem_3.onclick = ascendingFunc;
+        function ascendingFunc() {
+            document.getElementById("final_filter").value = "ascending";
+        }
+      </script>
+
+      <script>
+        let elem_4 = document.getElementById('descending')
+        elem_4.onclick = descendingFunc;
+        function descendingFunc() {
+            document.getElementById("final_filter").value = "descending";
+        }
+      </script>
 
       <script>
         document.getElementById('buttonID').onclick = applySorting;
         function applySorting() {
-             let form = document.getElementById("sortingID")
-             form.submit()
-         }
-       </script>
+            let form = document.getElementById("sortingID")
+            form.submit()
+        }
+      </script>
+
+      <!-- <script>
+        var buttonItems = document.querySelectorAll('input[name="filter"]'),
+            index, button;
+
+        for (index = 0; index < buttonItems.length; index++) {
+            button = buttonItems[index];
+            button.addEventListener('click', function (elem) {
+                let form = document.getElementById("clear_bin")
+                document.getElementById("deleteTyre").value = button.id;
+                form.submit()
+            });
+        }
+      </script> -->
       </body>
     </html>
