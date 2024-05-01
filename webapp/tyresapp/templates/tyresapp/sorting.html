@@ -9,13 +9,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/sorting_styles2.css' %}">
+    <link rel="stylesheet" href="{% static 'css/sorting_styles.css' %}">
   </head>
   
   <body>
     <form method="post" class=frame id="sortingID">
       {% csrf_token %}
-        <a href="{{ tyres_url }}">
+        <a href="">
           <span  class="back_text">Назад</span>
           <img class="back_image" src="{% static 'photos/image_1.png' %}">
         </a>
@@ -27,18 +27,18 @@
         </div>
 
         <div class="tests">
-          <label for="new" class="radio-label">Новинки</label>
-          <input type="radio" id="new" name="filter" class="radio-button">
+          <label for="new" class="radio-label2">Новинки</label>
+          <input type="radio" id="new" name="filter" class="radio-button2">
         </div>
         
         <div class="tests">
-          <label for="ascending" class="radio-label">По возрастанию цены</label>
-          <input type="radio" id="ascending" name="filter" class="radio-button">
+          <label for="ascending" class="radio-label3">По возрастанию цены</label>
+          <input type="radio" id="ascending" name="filter" class="radio-button3">
         </div>
         
         <div class="tests">
-          <label for="descending" class="radio-label">По убыванию цену</label>
-          <input type="radio" id="descending" name="filter" class="radio-button">
+          <label for="descending" class="radio-label4">По убыванию цену</label>
+          <input type="radio" id="descending" name="filter" class="radio-button4">
         </div>
 
         <div class="bin" id="buttonID">

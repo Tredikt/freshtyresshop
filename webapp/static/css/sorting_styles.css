@@ -136,44 +136,46 @@ body {
 		top:10px;
 	}
 	.radio-button {
-		margin-left: 130px;
-}
-.radio-button2 {
-	margin-left: 180px;
-  }
-  .radio-button3 {
-	margin-left: 25px;
-  }
-  .radio-button4 {
-	margin-left: 36px;
-  }
-.radio-label {
-  display: inline-block;
-  font-size: 17px;
-  font-family:Inter;
-  margin-left: 20px;
-  margin-top: 70px;
-}
-.radio-label2 {
-	display: inline-block;
-	font-size: 17px;
-	font-family:Inter;
-	margin-left: 20px;
-  }
-
-  .radio-label3 {
-	display: inline-block;
-	font-size: 17px;
-	font-family:Inter;
-	margin-left: 20px;
-
-  }
-  .radio-label4 {
-	display: inline-block;
-	font-size: 17px;
-	font-family:Inter;
-	margin-left: 20px;
-  }
+		margin-left: 138px;
+	  }
+	  .radio-button2 {
+		  margin-left: 189px;
+		}
+		.radio-button3 {
+		  margin-left: 76px;
+		}
+		.radio-button4 {
+		  margin-left: 103px;
+		}
+	.radio-label {
+		display: inline-block;
+		font-size: 17px;
+		font-family:Inter;
+		margin-left: 20px;
+		margin-top: 70px;
+	  }
+	  .radio-label2 {
+		  display: inline-block;
+		  font-size: 17px;
+		  font-family:Inter;
+		  margin-left: 20px;
+		  margin-top: 13px;
+		}
+	  
+		.radio-label3 {
+		  display: inline-block;
+		  font-size: 17px;
+		  font-family:Inter;
+		  margin-left: 20px;
+		  margin-top: 13px;
+		}
+		.radio-label4 {
+		  display: inline-block;
+		  font-size: 17px;
+		  font-family:Inter;
+		  margin-top: 13px;
+		  margin-left: 20px;
+		}
 	
 
 	
