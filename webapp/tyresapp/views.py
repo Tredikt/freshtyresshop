@@ -105,6 +105,9 @@ class BasketView(ListView):
                 if order.tyre_id == int(tyre_id):
                     elem = Order.objects.get(pk=order.pk)
                     elem.delete()
+                    tire = Tyre.objects.filter(pk=tyre_id)[0]
+                    tire.status = "stock"
+                    tire.save()
 
             tyres = []
             end_price = 0
