@@ -55,7 +55,7 @@ class TyreDetails(DetailView):
         return render(request, "tyresapp/product_card.html", context=context)
 
     def post(self, request, pk, tg_id):
-        tg_id = int(request.POST.get("tg_id"))
+        # tg_id = int(request.POST.get("tg_id"))
         Order.objects.create(
             tg_id=tg_id,
             tyre_id=pk
