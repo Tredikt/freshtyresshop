@@ -32,10 +32,13 @@ input {
 
 
 .bin {
-	position: absolute; 
-	bottom: 0px;
+    position: absolute; 
+    left: 50%; 
+    transform: translate(-50%, 50%); 
+    
     cursor: pointer;
 }
+
 
 .bin_background { 
 	box-sizing: border-box;
