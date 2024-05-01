@@ -28,7 +28,7 @@ class TyresListView(ListView):
             if tyre.status not in ["booked", "sold"] and tyre.pk not in tyres_pk_list:
                 tyres_list.append(tyre)
 
-        context = {"tyres": tyres_list, "search_value": ""}
+        context = {"tyres": tyres_list, "search_value": "", "filtration": "Все товары"}
         return render(request, "tyresapp/index.html", context=context)
 
     def post(self, request):
@@ -219,9 +219,37 @@ class SortingView(TemplateView):
 
 
 class FiltrationView(TemplateView):
+    def get_locations(self):
+        return {
+            1: "Москва",
+            2: "Ростов-на-Дону",
+            3: "Воро""неж",
+            4: "Краснодар",
+            5: "Минеральные Воды",
+            6: "Тюмень",
+            7: "Волгоград",
+            8: "Ставрополь",
+            9: "Сургут"
+        }
+
+    def get_category_name(self):
+        return {
+            "product_category": "Категория товара",
+            "manufacturer": "Производитель",
+            "weight": "Ширина Шин",
+            "height": "Высота Шин",
+            "seasonality": "Сезонность",
+            "diameter": "Диаметр (размер)",
+            "thorns": "Шипы",
+            "location": "Локация"
+        }
+
     def get(self, request, tg_id):
         return render(request, "tyresapp/filtration.html")
-    
+
+    def post(self, request, tg_id):
+        print(request.POST)
+        return render(request, "tyresapp/filtration.html")
 
 class ExampleView(TemplateView):
     def get(self, request):

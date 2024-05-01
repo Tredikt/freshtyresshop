@@ -1,19 +1,22 @@
 {% load static %}
 <html lang="en">
-          <head> 
+          <head>
             <meta charset="utf-8">
           
             <title>Basket</title>
             <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+            <meta name="format-detection" content="telephone=no" />
+            <meta name="MobileOptimized" content="176" />
             <meta name="HandheldFriendly" content="True" />
             <meta name="robots" content="noindex,nofollow" />
 
 
             <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
 
-            <link rel="stylesheet" href="{% static 'css/basket_styles2.css' %}">
+            <link rel="stylesheet" href="{% static 'css/basket_styles.css' %}">
             <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
           </head>
@@ -21,6 +24,9 @@
           <body>
             {% block body %}
               <form id="clear_bin" method="post" class=frame>
+                <input type="hidden" id="clearInput" name="isClear" value="0">
+                <input type="hidden" id="deleteTyre" name="deleteOne" value="0">
+
                 {% csrf_token %}
                 {% url 'tyresapp:tyres' as tyres_url %}
                 <a href="{{ tyres_url }}">
@@ -39,7 +45,12 @@
                       {% for image in tyre.images.all %}
                         <img  class="product_image" src="{{ image.image.url }}">
                       {% endfor %}
-                      <div  class="model">
+                      
+                      <div class="cross" id="{{ tyre.tyre_id }}">
+                        
+                      </div>
+
+                      <div class="model">
                         {{ tyre.model }}<br>
                         Шины {{ tyre.tyres_parameters }}
                         {% if tyre.disks_parameters %}
@@ -97,10 +108,27 @@
                 {% endif %}
               </div>
             </form>
+            
+            <script>
+              var buttonItems = document.querySelectorAll('.cross'),
+                  index, button;
+
+              for (index = 0; index < buttonItems.length; index++) {
+                  button = buttonItems[index];
+                  button.addEventListener('click', function (elem) {
+                      let form = document.getElementById("clear_bin")
+                      document.getElementById("deleteTyre").value = elem.id;
+                      form.submit()
+                  });
+              }
+            </script>
+
             <script>
               document.getElementById("clear").onclick = clearBin;
               function clearBin() {
                 let form = document.getElementById("clear_bin")
+                let inputBin = document.getElementById("clearInput")
+                inputBin.value = 1;
                 form.submit()
               }
             </script>
