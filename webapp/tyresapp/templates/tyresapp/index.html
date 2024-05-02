@@ -47,7 +47,9 @@
           {% for tyre in tyres %}
             <div class="product_card">
               {% for image in tyre.images.all %}
-                <img class="product_image" src="{{ image.image.url }}">
+                <a href="{% url 'tyresapp:tyre_details' pk=tyre.pk tg_id=0 %}">
+                  <img class="product_image" src="{{ image.image.url }}">
+                </a>
               {% endfor %}
               <div class="card_text">
                 <div class="price">

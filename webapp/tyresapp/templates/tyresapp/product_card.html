@@ -18,6 +18,7 @@
           
           <body>
             <div class="frame">
+              {% url 'tyresapp:tyres' as tyres_url %}
               <a href="{{ tyres_url }}">
                 <span  class="back_text">Назад</span>
                 <img class="back_image" src="{% static 'photos/image_1.png' %}">
