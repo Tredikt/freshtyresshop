@@ -96,18 +96,21 @@
                     // document.getElementById("error").innerText = "Ошибка в фио";
                     let in_fio = document.getElementById("fio")
                     in_fio.placeholder = "Ошибка в имени. Введите ФИО";
+                    in_fio.style.borderColor = "red";
                     return;
                   }
 
-                  if (phone.length < 10) {
+                  if ( phone.length < 10 || phone.length > 12) {
                     // document.getElementById("error").innerText = "Ошибка в номере";
                     document.getElementById("phone").placeholder = "Ошибка в номере. Попробуйте снова";
+                    document.getElementById("phone").style.borderColor = "red";
                     return;
                   }
 
                   if (email.length < 8) {
                     // document.getElementById("error").innerText = "Ошибка в email";
                     document.getElementById("email").placeholder = "Ошибка в email. Попробуйте снова";
+                    document.getElementById("email").style.borderColor = "red";
                     return;
                   }
 
